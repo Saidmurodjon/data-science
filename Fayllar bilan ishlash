@@ -1,0 +1,213 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPsbXhU4X53s8k9ReB8PEoa",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Saidmurodjon/data-science/blob/main/Fayllar%20bilan%20ishlash\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 21,
+      "metadata": {
+        "id": "7gw-ZouyjIo5"
+      },
+      "outputs": [],
+      "source": [
+        "import numpy as  np"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr= np.arange(10)"
+      ],
+      "metadata": {
+        "id": "lk_lVLuAjdAq"
+      },
+      "execution_count": 22,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "jjbnIcuMjoPS",
+        "outputId": "60a265c0-a565-4262-a763-a2e7b327ed8f"
+      },
+      "execution_count": 23,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 23
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "np.save(\"data\", arr)"
+      ],
+      "metadata": {
+        "id": "k7BkY95pjrvI"
+      },
+      "execution_count": 24,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr2 = np.load('data.npy')\n",
+        "arr2"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_1r0iIKCj_t7",
+        "outputId": "99d18701-a63d-4b66-80c3-7b801a54b1f8"
+      },
+      "execution_count": 25,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 25
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arr1 = np.arange(20)\n",
+        "arr1"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "4XvINVQpkW1c",
+        "outputId": "52ab9e8d-d2a7-4fdb-f05c-0c0cc7954573"
+      },
+      "execution_count": 26,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,\n",
+              "       17, 18, 19])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 26
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "np.savez('arrays', a=arr, b=arr1)\n"
+      ],
+      "metadata": {
+        "id": "GwJ3UVhkkc_g"
+      },
+      "execution_count": 27,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arrays_load = np.load('arrays.npz')"
+      ],
+      "metadata": {
+        "id": "RvM2AtwLkvo0"
+      },
+      "execution_count": 28,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "arrays_load['b']"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "-vt6l9-tk9zj",
+        "outputId": "0348cc58-fd91-457e-968a-efe8979fc0aa"
+      },
+      "execution_count": 30,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,\n",
+              "       17, 18, 19])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 30
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "np.savez_compressed('array_comp.npz',a=arr, b=arr1) #katta faylarni siqilgan holatda saqlash uchun ishlatiladi"
+      ],
+      "metadata": {
+        "id": "RgSKPJGolP0g"
+      },
+      "execution_count": 32,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "TwXCmAbYlc-c"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
